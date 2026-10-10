@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WebSound Academy | Admin Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Poppins", sans-serif;
+            background: #0b1730;
+            padding: 20px;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 420px;
+            padding: 40px;
+            border-radius: 18px;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,.35);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            color: #0b1730;
+            font-size: 28px;
+        }
+
+        .logo span {
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        h2 {
+            margin-bottom: 8px;
+            color: #0b1730;
+        }
+
+        .description {
+            margin-bottom: 25px;
+            color: #667085;
+            font-size: 13px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #172033;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #e5eaf2;
+            border-radius: 9px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 13px;
+            border: none;
+            border-radius: 9px;
+            background: #2563eb;
+            color: white;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1748bd;
+        }
+
+        .error {
+            margin-bottom: 15px;
+            padding: 11px;
+            border-radius: 8px;
+            background: #fee2e2;
+            color: #dc2626;
+            font-size: 12px;
+        }
+
+        .back {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #667085;
+            font-size: 12px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">
+        <h1>WebSound</h1>
+        <span>ACADEMY ADMINISTRATION</span>
+    </div>
+
+    <h2>Admin Access</h2>
+
+    <p class="description">
+        Enter the administrator password to continue.
+    </p>
+
+    <div class="error" id="loginError" style="display:none"></div>
+
+    <form method="POST" action="/api/admin-login">
+
+        <label for="password">
+            Admin Password
+        </label>
+
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter admin password"
+            required
+            autofocus
+        >
+
+        <button type="submit">
+            Enter Admin Dashboard
+        </button>
+
+    </form>
+
+    <a href="index.html" class="back">
+        ← Back to WebSound Academy
+    </a>
+
+</div>
+
+<script>
+var q = new URLSearchParams(window.location.search);
+var box = document.getElementById("loginError");
+var msg = q.get("error") ? "Incorrect admin password."
+        : q.get("timeout") ? "Your session ended after 30 minutes. Please log in again."
+        : q.get("logout") ? "You have been logged out." : "";
+if (msg) { box.textContent = msg; box.style.display = "block"; }
+</script>
+</body>
+</html>

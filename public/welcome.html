@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Welcome | WebSound Academy</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            min-height: 100vh;
+            background: #f5f7fb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .welcome-screen {
+            text-align: center;
+            padding: 30px;
+            width: 100%;
+        }
+
+        .welcome-icon {
+            width: 82px;
+            height: 82px;
+            margin: 0 auto 25px;
+            border-radius: 20px;
+            background: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.18);
+
+            animation: welcomeIn 0.7s ease forwards;
+        }
+
+        .welcome-text {
+            opacity: 0;
+            animation: textIn 0.7s ease 0.25s forwards;
+        }
+
+        .welcome-text .eyebrow {
+            color: #2563eb;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            margin-bottom: 8px;
+        }
+
+        .welcome-text h1 {
+            color: #111827;
+            font-size: 28px;
+            line-height: 1.3;
+        }
+
+        .welcome-text p {
+            color: #6b7280;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /*
+        =====================================================
+           DOOR
+        =====================================================
+        */
+
+        .door-scene {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            opacity: 0;
+            pointer-events: none;
+
+            animation: doorScene 0.1s linear 2.3s forwards;
+        }
+
+        .door {
+            width: 150px;
+            height: 210px;
+            border: 8px solid #1e3a8a;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            background: #2563eb;
+
+            transform-origin: left center;
+
+            animation: openDoor 1s ease 2.5s forwards;
+        }
+
+        .door::before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ffffff;
+            right: 18px;
+            top: 50%;
+        }
+
+        /*
+        =====================================================
+           ANIMATIONS
+        =====================================================
+        */
+
+        @keyframes welcomeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(18px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+        @keyframes textIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes doorScene {
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes openDoor {
+
+            from {
+                transform: perspective(700px) rotateY(0deg);
+            }
+
+            to {
+                transform: perspective(700px) rotateY(-105deg);
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .welcome-text h1 {
+                font-size: 23px;
+            }
+
+            .welcome-text p {
+                font-size: 13px;
+            }
+
+            .welcome-icon {
+                width: 72px;
+                height: 72px;
+                font-size: 34px;
+            }
+
+            .door {
+                width: 125px;
+                height: 180px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <main class="welcome-screen">
+
+        <div class="welcome-icon">
+            W
+        </div>
+
+        <div class="welcome-text">
+
+            <div class="eyebrow">
+                WELCOME BACK
+            </div>
+
+            <h1>
+                Welcome, <span id="studentName">student</span>.
+            </h1>
+
+            <p>
+                Your learning journey continues.
+            </p>
+
+        </div>
+
+    </main>
+
+    <div class="door-scene">
+
+        <div class="door"></div>
+
+    </div>
+
+    <script>
+
+        setTimeout(function () {
+
+            window.location.href = "courses.html";
+
+        }, 3600);
+
+    </script>
+
+<script>
+fetch("/api/me", { credentials: "same-origin" })
+  .then(function (r) { return r.json(); })
+  .then(function (d) {
+    if (!d.loggedIn) { window.location.href = "login.html"; return; }
+    document.getElementById("studentName").textContent = d.name;
+  })
+  .catch(function () {});
+</script>
+</body>
+
+</html>

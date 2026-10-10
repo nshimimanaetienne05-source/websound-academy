@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Courses | WebSound Academy</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="courses.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+<nav>
+
+    <div class="logo">
+        <h2>WebSound Academy</h2>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="courses.html" class="active">Courses</a>
+        </li>
+
+        <li>
+            <a href="categories.html">Categories</a>
+        </li>
+
+        <li>
+            <a href="about.html">About</a>
+        </li>
+
+        <li>
+            <a href="contact.html">Contact</a>
+        </li>
+
+    </ul>
+
+    <div class="buttons">
+
+        <a href="register.html" class="register">
+            Register Now
+        </a>
+
+    </div>
+
+    <button type="button" class="menu" id="menuButton" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+</nav>
+
+<!-- =========================================================
+     COURSES PAGE
+========================================================= -->
+
+<main id="coursesPage">
+
+
+<!-- =========================================================
+     HERO SLIDER
+========================================================= -->
+
+<section class="courses-slider">
+
+    <div class="slide active">
+
+        <div class="slide-content">
+
+            <span>WEBSOUND ACADEMY</span>
+
+            <h1>
+                Learn Skills That
+                Build Your Future
+            </h1>
+
+            <p>
+                Discover practical courses in technology,
+                healthcare, business, design, languages and
+                professional development.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="scrollToCourses()">
+
+                Explore Courses
+                <i class="fas fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+        <div class="slide-image">
+
+            <img
+                src="images/courses/course-hero-1.jpg"
+                alt="Online Learning">
+
+        </div>
+
+    </div>
+
+
+    <div class="slide">
+
+        <div class="slide-content">
+
+            <span>LEARN ANYWHERE</span>
+
+            <h1>
+                Practical Learning
+                For Everyone
+            </h1>
+
+            <p>
+                Study with videos, notes, PDFs, quizzes,
+                assignments and practical projects.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="scrollToCourses()">
+
+                Start Learning
+                <i class="fas fa-play"></i>
+
+            </button>
+
+        </div>
+
+        <div class="slide-image">
+
+            <img
+                src="images/courses/course-hero-2.jpg"
+                alt="Students Learning">
+
+        </div>
+
+    </div>
+
+
+    <div class="slide">
+
+        <div class="slide-content">
+
+            <span>BUILD YOUR SKILLS</span>
+
+            <h1>
+                From Beginner
+                To Professional
+            </h1>
+
+            <p>
+                Choose a course, open your lessons and
+                learn at your own pace.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="scrollToCourses()">
+
+                View Courses
+                <i class="fas fa-book-open"></i>
+
+            </button>
+
+        </div>
+
+        <div class="slide-image">
+
+            <img
+                src="images/courses/course-hero-3.jpg"
+                alt="Professional Learning">
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="slider-arrow previous"
+        onclick="previousSlide()">
+
+        <i class="fas fa-chevron-left"></i>
+
+    </button>
+
+    <button
+        class="slider-arrow next"
+        onclick="nextSlide()">
+
+        <i class="fas fa-chevron-right"></i>
+
+    </button>
+
+
+    <div class="slider-dots">
+
+        <button
+            class="dot active"
+            onclick="showSlide(0)">
+        </button>
+
+        <button
+            class="dot"
+            onclick="showSlide(1)">
+        </button>
+
+        <button
+            class="dot"
+            onclick="showSlide(2)">
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT COURSES
+========================================================= -->
+
+<section class="course-introduction">
+
+    <div class="section-title">
+
+        <span>OUR LEARNING PROGRAM</span>
+
+        <h2>
+            Learn More. Build More. Become More.
+        </h2>
+
+        <p>
+            WebSound Academy provides practical and accessible
+            learning designed to help students, professionals
+            and anyone who wants to develop useful skills.
+        </p>
+
+    </div>
+
+
+    <div class="intro-grid">
+
+        <div class="intro-card">
+
+            <i class="fas fa-laptop-code"></i>
+
+            <h3>
+                Practical Skills
+            </h3>
+
+            <p>
+                Learn skills that you can apply to real
+                projects and everyday work.
+            </p>
+
+        </div>
+
+
+        <div class="intro-card">
+
+            <i class="fas fa-user-graduate"></i>
+
+            <h3>
+                Beginner Friendly
+            </h3>
+
+            <p>
+                Our courses are structured so that learners
+                can start from the basics.
+            </p>
+
+        </div>
+
+
+        <div class="intro-card">
+
+            <i class="fas fa-globe"></i>
+
+            <h3>
+                Learn Anywhere
+            </h3>
+
+            <p>
+                Access your learning materials from a phone,
+                tablet or computer.
+            </p>
+
+        </div>
+
+
+        <div class="intro-card">
+
+            <i class="fas fa-certificate"></i>
+
+            <h3>
+                Certificates
+            </h3>
+
+            <p>
+                Complete eligible courses and receive
+                a WebSound Academy certificate.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUOTE
+========================================================= -->
+
+<section class="course-quote">
+
+    <div>
+
+        <i class="fas fa-quote-left"></i>
+
+        <blockquote>
+            Learning is not about how much you know.
+            It is about what you can do with what you learn.
+        </blockquote>
+
+        <span>
+            — WebSound Academy
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW WE DELIVER COURSES
+========================================================= -->
+
+<section class="delivery-section">
+
+    <div class="section-title">
+
+        <span>HOW WE DELIVER COURSES</span>
+
+        <h2>
+            Everything You Need To Learn
+        </h2>
+
+        <p>
+            Each course can contain different learning
+            materials depending on the subject.
+        </p>
+
+    </div>
+
+
+    <div class="delivery-grid">
+
+        <div class="delivery-card">
+
+            <i class="fas fa-video"></i>
+
+            <h3>
+                Video Lessons
+            </h3>
+
+            <p>
+                Watch practical lessons explained
+                step by step.
+            </p>
+
+        </div>
+
+
+        <div class="delivery-card">
+
+            <i class="fas fa-file-pdf"></i>
+
+            <h3>
+                Notes & PDFs
+            </h3>
+
+            <p>
+                Read downloadable learning materials
+                and course notes.
+            </p>
+
+        </div>
+
+
+        <div class="delivery-card">
+
+            <i class="fas fa-question-circle"></i>
+
+            <h3>
+                Quizzes
+            </h3>
+
+            <p>
+                Test your understanding after studying
+                important lessons.
+            </p>
+
+        </div>
+
+
+        <div class="delivery-card">
+
+            <i class="fas fa-pen"></i>
+
+            <h3>
+                Assignments
+            </h3>
+
+            <p>
+                Practice your knowledge through
+                practical assignments.
+            </p>
+
+        </div>
+
+
+        <div class="delivery-card">
+
+            <i class="fas fa-laptop-code"></i>
+
+            <h3>
+                Projects
+            </h3>
+
+            <p>
+                Apply what you learn by creating
+                real-world projects.
+            </p>
+
+        </div>
+
+
+        <div class="delivery-card">
+
+            <i class="fas fa-award"></i>
+
+            <h3>
+                Certification
+            </h3>
+
+            <p>
+                Eligible completed courses can provide
+                certificates.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUOTE 2
+========================================================= -->
+
+<section class="course-quote second-quote">
+
+    <div>
+
+        <i class="fas fa-quote-left"></i>
+
+        <blockquote>
+            The best investment you can make is an investment
+            in your own knowledge and skills.
+        </blockquote>
+
+        <span>
+            — WebSound Academy
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURED COURSES
+========================================================= -->
+
+<section
+    class="featured-courses"
+    id="featuredCourses">
+
+    <div class="section-title">
+
+        <span>FEATURED COURSES</span>
+
+        <h2>
+            Start With These Popular Courses
+        </h2>
+
+        <p>
+            Explore some of the courses available at
+            WebSound Academy.
+        </p>
+
+    </div>
+
+
+    <div
+        class="course-grid"
+        id="featuredCourseContainer">
+
+    </div>
+
+
+    <div class="center-button">
+
+        <button
+            class="outline-btn"
+            onclick="scrollToCourses()">
+
+            See All Courses
+            <i class="fas fa-arrow-down"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ALL COURSES
+========================================================= -->
+
+<section
+    class="all-courses"
+    id="allCourses">
+
+    <div class="section-title">
+
+        <span>OUR COURSES</span>
+
+        <h2>
+            Explore All Courses
+        </h2>
+
+        <p>
+            Choose a subject and start learning.
+        </p>
+
+    </div>
+
+
+    <!-- Search -->
+
+    <div class="course-search">
+
+        <div class="search-box">
+
+            <i class="fas fa-search"></i>
+
+            <input
+                type="text"
+                id="courseSearch"
+                placeholder="Search for a course..."
+                oninput="searchCourses()">
+
+        </div>
+
+    </div>
+
+
+    <!-- Categories -->
+
+    <div
+        class="category-filters"
+        id="categoryFilters">
+
+        <button
+            class="filter-btn active"
+            onclick="filterCourses('all', this)">
+
+            All
+
+        </button>
+
+    </div>
+
+
+    <!-- Course Cards -->
+
+    <div
+        class="course-grid"
+        id="courseContainer">
+
+    </div>
+
+
+    <div
+        class="no-courses"
+        id="noCourses"
+        style="display:none;">
+
+        <i class="fas fa-search"></i>
+
+        <h3>
+            No courses found
+        </h3>
+
+        <p>
+            Try another search or category.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STUDY AREA
+========================================================= -->
+
+</main>
+
+
+<!-- =========================================================
+     STUDY AREA
+========================================================= -->
+
+<section
+    class="study-area"
+    id="studyArea"
+    style="display:none;">
+
+    <div class="study-header">
+
+        <button
+            class="back-button"
+            onclick="backToCourses()">
+
+            <i class="fas fa-arrow-left"></i>
+            Back to Courses
+
+        </button>
+
+        <div>
+
+            <span id="studyCategory">
+                Technology
+            </span>
+
+            <h1 id="studyCourseTitle">
+                Course Title
+            </h1>
+
+            <p id="studyCourseDescription">
+                Course description
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="study-layout">
+
+        <aside class="lesson-sidebar">
+
+            <h3>
+                Course Content
+            </h3>
+
+            <div id="moduleContainer"></div>
+
+        </aside>
+
+
+        <div class="lesson-content">
+
+            <div id="welcomeLesson">
+
+                <div class="lesson-welcome-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+
+                <h2>
+                    Welcome To Your Course
+                </h2>
+
+                <p>
+                    Select a lesson from the course content
+                    to begin studying.
+                </p>
+
+            </div>
+
+
+            <div
+                id="lessonViewer"
+                style="display:none;">
+
+                <span
+                    class="lesson-number"
+                    id="lessonNumber">
+                    Lesson 1
+                </span>
+
+                <h2 id="lessonTitle">
+                    Lesson Title
+                </h2>
+
+
+                <div
+                    class="lesson-video"
+                    id="lessonVideo">
+
+                    <div>
+                        <i class="fas fa-play-circle"></i>
+
+                        <p>
+                            Course video will appear here.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="lesson-text">
+
+                    <h3>
+                        Lesson Notes
+                    </h3>
+
+                    <p id="lessonNotes">
+                        Lesson notes will appear here.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="lesson-materials"
+                    id="lessonMaterials">
+                </div>
+
+
+                <div
+                    class="lesson-activity"
+                    id="lessonQuiz"
+                    style="display:none;">
+
+                    <h3>
+                        <i class="fas fa-question-circle"></i>
+                        Quiz
+                    </h3>
+
+                    <p>
+                        A quiz will be available for this lesson.
+                    </p>
+
+                    <button class="activity-btn">
+                        Start Quiz
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="lesson-activity"
+                    id="lessonAssignment"
+                    style="display:none;">
+
+                    <h3>
+                        <i class="fas fa-pen"></i>
+                        Assignment
+                    </h3>
+
+                    <p>
+                        An assignment will be available for this lesson.
+                    </p>
+
+                    <button class="activity-btn">
+                        View Assignment
+                    </button>
+
+                </div>
+
+
+                <div class="lesson-navigation">
+
+                    <button
+                        id="previousLesson"
+                        onclick="previousLesson()">
+
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+
+                    </button>
+
+                    <button
+                        id="nextLesson"
+                        onclick="nextLesson()">
+
+                        Next
+                        <i class="fas fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+
+            <h2>
+                WebSound Academy
+            </h2>
+
+            <p>
+                Empowering learners through technology,
+                healthcare, languages, business and
+                professional education.
+            </p>
+
+        </div>
+
+
+        <div class="footer-box">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+                          <a href="courses.html">
+Courses
+            </a>
+
+            <a href="categories.html">
+                Categories
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-box">
+
+            <h3>
+                Popular Courses
+            </h3>
+
+            <a href="#allCourses">
+                Web Development
+            </a>
+
+            <a href="#allCourses">
+                Programming
+            </a>
+
+            <a href="#allCourses">
+                Nursing
+            </a>
+
+            <a href="#allCourses">
+                Artificial Intelligence
+            </a>
+
+            <a href="#allCourses">
+                Business
+            </a>
+
+        </div>
+
+
+        <div class="footer-box">
+
+            <h3>
+                Follow Us
+            </h3>
+
+            <a href="#">
+                <i class="fab fa-facebook"></i>
+                Facebook
+            </a>
+
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+
+            <a href="#">
+                <i class="fab fa-youtube"></i>
+                YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 WebSound Academy.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            Designed & Developed by
+            <strong>
+                Etienne | WebSound Academy
+            </strong>
+        </p>
+
+    </div>
+   <a href="register.html" class="floating-bounce-btn">Register&login Now</a>
+
+
+
+</footer>
+
+
+<!-- =========================================================
+     COURSE PAGE JAVASCRIPT
+========================================================= -->
+
+<script src="courses.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    if (!menuButton || !navLinks) {
+        return;
+    }
+
+    menuButton.addEventListener("click", function (e) {
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        navLinks.classList.toggle("active");
+
+        const icon = menuButton.querySelector("i");
+
+        if (navLinks.classList.contains("active")) {
+
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        }
+
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("active");
+
+            const icon = menuButton.querySelector("i");
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        });
+
+    });
+
+});
+</script>
+
+</body>
+</html>

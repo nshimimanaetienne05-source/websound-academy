@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | WebSound Academy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <section class="auth-card">
+
+            <div class="brand">
+                <div class="brand-mark">W</div>
+
+                <div>
+                    <h1>WebSound</h1>
+                    <span>ACADEMY</span>
+                </div>
+            </div>
+
+            <div class="door-icon">🚪</div>
+
+            <p class="eyebrow">START YOUR JOURNEY</p>
+
+            <h2>Create your account</h2>
+
+            <p class="subtitle">
+                Learn. Build. Grow.
+            </p>
+
+            <div id="message" class="message" role="alert"></div>
+
+            <form id="registerForm" action="/api/register" method="POST" novalidate>
+
+                <!-- FULL NAME -->
+                <div class="form-group">
+                    <label for="full_name">Full name</label>
+
+                    <input
+                        type="text"
+                        id="full_name"
+                        name="full_name"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-group">
+                    <label for="email">Email address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <div class="password-field">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a strong password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                    <div class="strength">
+                        <div class="strength-bar">
+                            <div id="strengthFill"></div>
+                        </div>
+
+                        <span id="strengthText">
+                            Enter a password
+                        </span>
+                    </div>
+
+                    <div class="requirements">
+
+                        <p id="lengthRule">
+                            <span>○</span> 8+ characters
+                        </p>
+
+                        <p id="uppercaseRule">
+                            <span>○</span> Uppercase letter
+                        </p>
+
+                        <p id="lowercaseRule">
+                            <span>○</span> Lowercase letter
+                        </p>
+
+                        <p id="numberRule">
+                            <span>○</span> Number
+                        </p>
+
+                        <p id="specialRule">
+                            <span>○</span> Special character
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- CONFIRM PASSWORD -->
+                <div class="form-group">
+                    <label for="confirm_password">Confirm password</label>
+
+                    <div class="password-field">
+
+                        <input
+                            type="password"
+                            id="confirm_password"
+                            name="confirm_password"
+                            placeholder="Enter your password again"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="toggleConfirmPassword"
+                            aria-label="Show password"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+                </div>
+
+                <button
+                    type="submit"
+                    id="registerButton"
+                    class="register-button"
+                >
+                    Create Account
+                </button>
+
+            </form>
+
+            <p class="login-text">
+                Already have an account?
+                <a href="login.html">Log in</a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 WebSound Academy. Learn. Build. Grow.
+    </footer>
+
+    <script src="register.js"></script>
+
+</body>
+</html>
