@@ -1,0 +1,11 @@
+{
+  "name": "websound-academy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WebSound Academy: static site + Netlify Function API",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0",
+    "bcryptjs": "^2.4.3",
+    "mysql2": "^3.11.0"
+  }
+}

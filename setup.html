@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebSound Academy | Database setup</title>
+<style>
+  body{font-family:system-ui,Arial,sans-serif;background:#0b1730;min-height:100vh;margin:0;display:grid;place-items:center;padding:20px}
+  .box{background:#fff;max-width:460px;width:100%;padding:34px;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  h1{margin:0 0 8px;color:#0b1730;font-size:24px}
+  p{color:#475467;line-height:1.6;margin:0 0 16px}
+  button{width:100%;padding:14px;border:0;border-radius:10px;background:#2563eb;color:#fff;font-size:16px;font-weight:600;cursor:pointer}
+  button:disabled{opacity:.6;cursor:wait}
+  #result{margin-top:16px;padding:12px;border-radius:10px;display:none;font-size:14px;line-height:1.5}
+  .ok{background:#dcfce7;color:#166534}.bad{background:#fee2e2;color:#b91c1c}
+  a{color:#2563eb}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>Database setup</h1>
+  <p>Press the button once to create the tables WebSound Academy needs. It is safe to press again, because it never deletes anything.</p>
+  <p>You must be logged in as admin first: <a href="admin-login.html">open the admin login</a>, log in, then come back here.</p>
+  <button id="go" type="button">Create the tables</button>
+  <div id="result"></div>
+</div>
+<script>
+var btn = document.getElementById("go"), out = document.getElementById("result");
+function show(msg, good) { out.textContent = msg; out.className = good ? "ok" : "bad"; out.style.display = "block"; }
+btn.addEventListener("click", async function () {
+  btn.disabled = true; btn.textContent = "Working...";
+  try {
+    var r = await fetch("/api/admin/setup", { method: "POST", credentials: "same-origin" });
+    if (r.status === 401) { show("Please log in as admin first, then come back to this page.", false); return; }
+    var d = await r.json();
+    show(d.message, d.success);
+  } catch (e) { show("Could not reach the server. Check your internet and try again.", false); }
+  finally { btn.disabled = false; btn.textContent = "Create the tables"; }
+});
+</script>
+</body>
+</html>

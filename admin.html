@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebSound Academy | Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="admin-layout">
+
+<aside class="sidebar">
+    <div class="logo">
+        <h2>WebSound</h2>
+        <span>ACADEMY ADMIN</span>
+    </div>
+    <div class="nav">
+        <a href="admin.html" class="active">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="admin.html#courses">
+            <i class="fas fa-book"></i>
+            <span>Courses</span>
+        </a>
+        <a href="admin.html#payments">
+            <i class="fas fa-credit-card"></i>
+            <span>Payments</span>
+        </a>
+        <a href="setup.html">
+            <i class="fas fa-database"></i>
+            <span>Setup database</span>
+        </a>
+        <a href="/api/admin-logout">
+            <i class="fas fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+    </div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+    <h1>WebSound Academy Admin</h1>
+    <div class="admin-user">
+        <strong>Administrator</strong>
+        <div class="admin-avatar"><i class="fas fa-user"></i></div>
+    </div>
+</header>
+
+<div class="content">
+
+<div id="alertBox"></div>
+
+<section>
+    <div class="page-heading">
+        <h2>Dashboard</h2>
+        <p>Manage WebSound Academy courses and learning content.</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-top"><span>Total Courses</span><div class="stat-icon"><i class="fas fa-book"></i></div></div>
+            <h3 id="statCourses">0</h3>
+            <p>Courses in database</p>
+        </div>
+        <div class="stat-card">
+            <div class="stat-top"><span>Students</span><div class="stat-icon"><i class="fas fa-users"></i></div></div>
+            <h3 id="statStudents">0</h3>
+            <p>Registered students</p>
+        </div>
+        <div class="stat-card">
+            <div class="stat-top"><span>Learning Content</span><div class="stat-icon"><i class="fas fa-video"></i></div></div>
+            <h3 id="statVideos">0</h3>
+            <p>Videos in selected course</p>
+        </div>
+        <div class="stat-card">
+            <div class="stat-top"><span>AI Quiz</span><div class="stat-icon"><i class="fas fa-robot"></i></div></div>
+            <h3>AI</h3>
+            <p>Quiz generation</p>
+        </div>
+    </div>
+
+    <div id="courses" class="panel">
+        <div class="panel-header">
+            <div>
+                <h3>Courses</h3>
+                <p style="color:var(--muted);font-size:12px;margin-top:4px;">Manage courses, videos, PDF notes and AI quizzes.</p>
+            </div>
+            <button class="btn btn-primary" type="button" onclick="openModal('courseModal')">
+                <i class="fas fa-plus"></i> Add Course
+            </button>
+        </div>
+        <div id="courseList"><div class="empty"><p>Loading...</p></div></div>
+    </div>
+
+    <div id="editor"></div>
+</section>
+
+</div>
+</main>
+</div>
+
+<div
+    class="modal"
+    id="courseModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Add New Course
+            </h3>
+
+            <button
+                class="close-modal"
+                onclick="closeModal('courseModal')">
+
+                <i class="fas fa-times"></i>
+
+            </button>
+
+        </div>
+
+
+        <form class="ajax-form">
+
+            <input
+                type="hidden"
+                name="action"
+                value="add_course">
+
+
+            <div class="form-group">
+
+                <label>
+                    Course Name
+                </label>
+
+                <input
+                    type="text"
+                    name="course_name"
+                    placeholder="Example: Web Development"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Category
+                </label>
+
+                <select name="category">
+
+                    <option>
+                        Technology
+                    </option>
+
+                    <option>
+                        Healthcare
+                    </option>
+
+                    <option>
+                        Business
+                    </option>
+
+                    <option>
+                        Languages
+                    </option>
+
+                    <option>
+                        Professional Development
+                    </option>
+
+                    <option>
+                        Design
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    name="description"
+                    placeholder="Describe the course..."></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Price
+                </label>
+
+                <input
+                    type="number"
+                    name="price"
+                    step="0.01"
+                    min="0"
+                    value="0">
+
+            </div>
+
+
+            <label class="checkbox-row">
+
+                <input
+                    type="checkbox"
+                    name="is_free"
+                    value="1"
+                    checked>
+
+                Free Course
+
+            </label>
+
+
+            <div class="form-group">
+
+                <label>
+                    Course Thumbnail
+                </label>
+
+                <input
+                    type="file"
+                    name="thumbnail"
+                    accept="image/*">
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="closeModal('courseModal')">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    <i class="fas fa-save"></i>
+
+                    Save Course
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADD VIDEO MODAL
+====================================================== -->
+
+<div
+    class="modal"
+    id="videoModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Add YouTube Video
+            </h3>
+
+            <button
+                class="close-modal"
+                onclick="closeModal('videoModal')">
+
+                <i class="fas fa-times"></i>
+
+            </button>
+
+        </div>
+
+
+        <form class="ajax-form">
+
+            <input
+                type="hidden"
+                name="action"
+                value="add_video">
+
+            <input
+                type="hidden"
+                name="course_id"
+                value="">
+
+
+            <div class="form-group">
+
+                <label>
+                    Lesson Title
+                </label>
+
+                <input
+                    type="text"
+                    name="lesson_title"
+                    placeholder="Example: Introduction to HTML"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Video Title
+                </label>
+
+                <input
+                    type="text"
+                    name="video_title"
+                    placeholder="Example: What is HTML?"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    YouTube URL
+                </label>
+
+                <input
+                    type="url"
+                    name="youtube_url"
+                    placeholder="https://www.youtube.com/watch?v=..."
+                    required>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="closeModal('videoModal')">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    <i class="fas fa-save"></i>
+
+                    Save Video
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NOTES MODAL
+====================================================== -->
+
+<div
+    class="modal"
+    id="notesModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Add Notes PDF
+            </h3>
+
+            <button
+                class="close-modal"
+                onclick="closeModal('notesModal')">
+
+                <i class="fas fa-times"></i>
+
+            </button>
+
+        </div>
+
+
+        <form class="ajax-form">
+
+            <input
+                type="hidden"
+                name="action"
+                value="add_notes">
+
+            <input
+                type="hidden"
+                name="course_id"
+                value="">
+
+
+            <div class="form-group">
+
+                <label>
+                    Lesson Title
+                </label>
+
+                <input
+                    type="text"
+                    name="lesson_title"
+                    placeholder="Example: Introduction to HTML"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    PDF Title
+                </label>
+
+                <input
+                    type="text"
+                    name="note_title"
+                    placeholder="Example: HTML Introduction Notes"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    PDF File
+                </label>
+
+                <input
+                    type="file"
+                    name="notes_pdf"
+                    accept=".pdf,application/pdf"
+                    required>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="closeModal('notesModal')">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    <i class="fas fa-upload"></i>
+
+                    Upload PDF
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- =====================================================
+     ADD QUIZ LINK MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="quizLinkModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Add Quiz Link
+            </h3>
+
+            <button
+                class="close-modal"
+                onclick="closeModal('quizLinkModal')">
+
+                <i class="fas fa-times"></i>
+
+            </button>
+
+        </div>
+
+
+        <form class="ajax-form">
+
+            <input
+                type="hidden"
+                name="action"
+                value="add_quiz">
+
+            <input
+                type="hidden"
+                name="course_id"
+                value="">
+
+
+            <div class="form-group">
+
+                <label>
+                    Lesson Title
+                </label>
+
+                <input
+                    type="text"
+                    name="lesson_title"
+                    placeholder="Example: Introduction to HTML"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Quiz Title
+                </label>
+
+                <input
+                    type="text"
+                    name="quiz_title"
+                    placeholder="Example: HTML Basics Quiz"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Quiz Link
+                </label>
+
+                <input
+                    type="url"
+                    name="quiz_url"
+                    placeholder="https://..."
+                    required>
+
+            </div>
+
+
+            <div
+                style="
+                    padding:12px;
+                    border-radius:8px;
+                    background:#eff6ff;
+                    color:var(--muted);
+                    font-size:11px;
+                    line-height:1.6;
+                ">
+
+                <i class="fas fa-info-circle"></i>
+
+                Paste the link to your external quiz.
+                Students will open it when they click
+                <strong>Take Quiz</strong>.
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="closeModal('quizLinkModal')">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    <i class="fas fa-link"></i>
+
+                    Save Quiz
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     AI QUIZ MODAL
+====================================================== -->
+
+<div
+    class="modal"
+    id="quizModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Generate AI Quiz
+            </h3>
+
+            <button
+                class="close-modal"
+                onclick="closeModal('quizModal')">
+
+                <i class="fas fa-times"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="ai-box">
+
+            <h3>
+
+                <i class="fas fa-robot"></i>
+
+                AI Quiz
+
+            </h3>
+
+            <p>
+
+                Choose a lesson and the number of questions.
+                The AI will generate multiple-choice questions
+                automatically.
+
+            </p>
+
+        </div>
+
+
+        <div class="form-group" style="margin-top:20px;">
+
+            <label>
+                Lesson
+            </label>
+
+            <select id="quizLesson">
+
+            
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Number of Questions
+            </label>
+
+            <select id="quizQuestionCount">
+
+                <option value="5">
+                    5 Questions
+                </option>
+
+                <option value="10">
+                    10 Questions
+                </option>
+
+                <option value="15">
+                    15 Questions
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                class="btn btn-light"
+                onclick="closeModal('quizModal')">
+
+                Cancel
+
+            </button>
+
+            <button
+                class="btn btn-primary"
+                onclick="generateAIQuiz()">
+
+                <i class="fas fa-wand-magic-sparkles"></i>
+
+                Generate Quiz
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="admin.js"></script>
+</body>
+</html>
